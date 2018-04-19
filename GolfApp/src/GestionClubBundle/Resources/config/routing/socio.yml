@@ -1,0 +1,24 @@
+socio_index:
+    path:     /
+    defaults: { _controller: "GestionClubBundle:socio:index" }
+    methods:  GET
+
+socio_show:
+    path:     /{id}/show
+    defaults: { _controller: "GestionClubBundle:socio:show" }
+    methods:  GET
+
+socio_new:
+    path:     /new
+    defaults: { _controller: "GestionClubBundle:socio:new" }
+    methods:  [GET, POST]
+
+socio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "GestionClubBundle:socio:edit" }
+    methods:  [GET, POST]
+
+socio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "GestionClubBundle:socio:delete" }
+    methods:  DELETE

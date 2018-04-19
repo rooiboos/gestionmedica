@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+
+
+{% block body %}
+    
+    
+    
+    <div class="row">
+     <div class="col-md-1"></div>
+  <div class="col-md-10">.
+    
+    
+    <h2 class="text-success">Listado de Socios</h2>
+
+    <table class="table m-3">
+        <thead>
+            <tr>
+                <th>Número socio</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Fecha de alta</th>
+                <th>Gestión</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for socio in socios %}
+            <tr>
+                <td><a href="{{ path('socio_show', { 'id': socio.id }) }}">{{ socio.id }}</a></td>
+                <td>{{ socio.nombre }}</td>
+                <td>{{ socio.direccion }}</td>
+                <td>{{ socio.telefono }}</td>
+                <td>{% if socio.fechaAlta %}{{ socio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    
+                            <a href="{{ path('socio_show', { 'id': socio.id }) }}" class="btn btn-primary btn-xs">ver</a>
+                        
+                            <a href="{{ path('socio_edit', { 'id': socio.id }) }}" class="btn btn-success btn-xs">editar</a>
+                       
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+       
+    
+            <a href="{{ path('socio_new') }}" class="btn btn-info btn-xs" role="button">Alta nuevo socio</a>
+      
+            <br> <br>
+            </div>
+  <div class="col-md-1"></div>
+    </div>
+{% endblock %}

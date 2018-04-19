@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <div class="row">
+     <div class="col-md-1"></div>
+  <div class="col-md-10">.
+    
+    
+    
+    <h2 class="text-success">Ver socio</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ socio.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ socio.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ socio.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ socio.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de alta</th>
+                <td>{% if socio.fechaAlta %}{{ socio.fechaAlta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+            <a href="{{ path('socio_index') }}" class="btn btn-primary btn-xs">Volver al listado</a>
+       
+            <a href="{{ path('socio_edit', { 'id': socio.id }) }}" class="btn btn-primary btn-xs">Editar</a>
+       
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar socio" class="btn btn-info btn-xs">
+            {{ form_end(delete_form) }}
+      </div>
+  <div class="col-md-1"></div></div>
+{% endblock %}

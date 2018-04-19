@@ -1,0 +1,21 @@
+web_index:
+    path:     /
+    defaults: { _controller: "GestionClubBundle:web:index" }
+    methods:  GET
+
+
+web_restaurante:
+    path:     /restaurante
+    defaults: { _controller: "GestionClubBundle:web:restaurante" }
+    methods:  GET
+    
+web_hotel:
+    path:     /hotel
+    defaults: { _controller: "GestionClubBundle:web:hotel" }
+    methods:  GET
+    
+web_contacto:
+    path:     /contacto
+    defaults: { _controller: "GestionClubBundle:web:contacto" }
+    methods:  GET
+    

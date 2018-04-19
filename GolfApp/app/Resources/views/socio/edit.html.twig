@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+    <div class="row">
+     <div class="col-md-1"></div>
+  <div class="col-md-10">.
+    
+    
+    <h2 class="text-success">Editar Socio</h2>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Editar registro" class="btn btn-primary btn-xs"/>
+    {{ form_end(edit_form) }}
+
+    {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar registro" class="btn btn-primary btn-xs">
+    {{ form_end(delete_form) }}
+    
+    
+    <a href="{{ path('socio_index') }}" class="btn btn-info btn-xs" role="button" >Volver al listado</a>
+        </div>
+    <div class="col-md-1"></div></div>
+{% endblock %}

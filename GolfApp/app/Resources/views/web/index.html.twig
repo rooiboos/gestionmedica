@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+    
+    <div class="row">
+     <div class="col-md-1"></div>
+  <div class="col-md-10">
+    
+    
+    
+
+    <div class="row text-justify">
+        <h2 class="navbar-ct-default text-default">Bienvenido a Golf Club</h2>
+         <img src="{{ asset('assets/paper_img/avatar_golf.jpg') }}" alt="Golf Club!" class="img-rounded m-3" style="float:left; margin-right: 10px" > Golf Club cuenta con un recorrido oficial de 18 hoyos par 72 de más de 6500 metros y un Pitch & Putt de 6 hoyos. El recorrido convencional se forma de 4 pares 5, 4 pares 3, y 10 pares 4. El campo de golf tiene un diseño que se adapta a cualquier tipo de nivel, desde iniciación hasta el profesional. Recientemente llevamos a cabo una reconstrucción del riego, pionera en España, que hará maximizar el uso del agua para el mantenimiento del campo. Esto hará un campo más sostenible y se convertirá en un ejemplo para el resto de clubs en el mundo. Traducido al juego, encontraremos un contraste perfecto entre la calle y el rough, dando una visualización muy bonita, y facilitando el juego cuando fallemos la calle.<br><br>
+         
+        Apostamos por llevar el golf a todo el público, con todos los servicios disponibles (escuela de golf, fisio, ludoteca, tienda, restaurante, buggies) para hacer de este recorrido una experiencia que querrás repetir.<br><br>
+
+        En el Centro Nacional somos muy activos en cuanto a competiciones y ofertas. Todas las semanas te estamos ofreciendo el mayor número de alternativas para que disfrutes de este deporte. Infórmate de nuestras ofertas y calendario de eventos para sacarle el máximo disfrute al golf.
+    </div>
+    </div>
+     
+      
+     
+     
+     
+     
+     <div class="col-md-1"></div>   
+     
+     
+    
+    </div>
+       <br>
+       
+    <div id="carousel">
+        <div id="carousel-golf" class="carousel slide" data-ride="carousel">
+        <div class="carousel slide" data-ride="carousel">
+
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-golf" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-golf" data-slide-to="1"></li>
+                <li data-target="#carousel-golf" data-slide-to="2"></li>
+                <li data-target="#carousel-golf" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="{{ asset('assets/paper_img/carrusel1.jpg') }}" alt="Golf Club!">
+                </div>
+                <div class="item">
+                  <img src="{{ asset('assets/paper_img/carrusel2.jpg') }}" alt="Golf Club!">
+                </div>
+                <div class="item">
+                  <img src="{{ asset('assets/paper_img/carrusel3.jpg') }}" alt="Golf Club!">
+                </div>
+                  <div class="item">
+                  <img src="{{ asset('assets/paper_img/carrusel4.jpg') }}" alt="Golf Club!">
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-golf" data-slide="prev">
+                  
+                  
+                <span class="fa fa-angle-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-golf" data-slide="next">
+                <span class="fa fa-angle-right"></span>
+              </a>
+        </div>
+    </div> <!-- end carousel -->
+{% endblock %}

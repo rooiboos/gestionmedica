@@ -1,0 +1,34 @@
+gestion_club_socio:
+    resource: "@GestionClubBundle/Resources/config/routing/socio.yml"
+    prefix:   /socio
+    
+gestion_club_web:
+    resource: "@GestionClubBundle/Resources/config/routing/web.yml"
+    prefix:   /web  
+    
+
+
+
+gestion_club_homepage:
+    path:     /
+    defaults: { _controller: GestionClubBundle:web:index }
+
+
+gestion_club_socio:
+    path:     /socio
+    defaults: { _controller: GestionClubBundle:socio:index }
+
+
+gestion_club_web:
+    path:     /web
+    defaults: { _controller: GestionClubBundle:web:index }
+    
+    
+
+    
+Gestion_club_contacto:
+    path:     /contacto
+    defaults: { _controller: GestionClubBundle:web:contacto }
+    
+    
+
