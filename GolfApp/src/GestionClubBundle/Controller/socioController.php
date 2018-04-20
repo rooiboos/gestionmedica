@@ -15,14 +15,30 @@ class socioController extends Controller
      * Lists all socio entities.
      *
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        
+            $em = $this->getDoctrine()->getManager();
 
         $socios = $em->getRepository('GestionClubBundle:socio')->findAll();
+        
+        #-----
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+        $socios, /* query NOT result */
+        $request->query->getInt('page', 1)/*page number*/,
+        3/*limit per page*/
+    );
+        
+        #----
+        
+        
+        
+        
+    
 
         return $this->render('socio/index.html.twig', array(
-            'socios' => $socios,
+            'socios' => $pagination,
         ));
     }
 
@@ -120,6 +136,11 @@ class socioController extends Controller
             ->getForm()
         ;
     }
+    
+    
+    
+    
+    
     
     
    
