@@ -38,7 +38,7 @@ class socioController extends Controller
     
 
         return $this->render('socio/index.html.twig', array(
-            'socios' => $pagination,
+            'socios' => $pagination, #cambiado antes habia socio
         ));
     }
 
