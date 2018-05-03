@@ -1,0 +1,3 @@
+clinica_homepage:
+    path:     /
+    defaults: { _controller: clinicaBundle:Default:index }

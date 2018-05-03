@@ -1,0 +1,40 @@
+clinicaBundle\Entity\Tratamiento:
+    type: entity
+    table: tratamiento
+    indexes:
+        fk_tratamiento_categoria:
+            columns:
+                - categoria_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        precio:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        categoria:
+            targetEntity: Categoria
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                categoria_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
