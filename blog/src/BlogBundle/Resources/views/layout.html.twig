@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %} Symfony3 {% endblock %}
+        </title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{path("blog_homepage")}}">Symfony Hafid</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            {% block menu %}
+                                <li class="active"><a href="home">Inicio<span class="sr-only">(current)</span></a></li>
+                                
+                           
+                            
+                               {% if is_granted('ROLE_USER') %}
+                                <li class="active"><a href="home">link user normal 1<span class="sr-only">(current)</span></a></li>
+                                <li><a href="user">Link user normal 2</a></li>  
+                                <li> // Eres una pena de usuario normal// </li>
+                                    
+                                {% endif %}
+
+                                {% if is_granted('ROLE_ADMIN') %}
+                                <li class="active"><a href="home">link user admin 1<span class="sr-only">(current)</span></a></li>
+                                <li><a href="user">Link user admin 2</a></li>    
+                                <li>// Eres lo máximo Oh! ADMINISTRADOR // </strong></li>
+                                {% endif %}
+                            
+                             {% endblock %}
+                        </ul>
+                        
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">
+                                {% if app.user != null%}
+                                    Bienvenido, {{app.user.name}} {{app.user.surname}}
+                                    <img width="30" src="{{ asset("uploads/"~app.user.imagen)}}"/>
+                                {% endif%}
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {% if app.user == null%}
+                                        <li><a href="{{path("login")}}">Entrar</a></li>
+                                    {%else%}
+                                        <li><a href="{{path("blog_add_entry")}}">Añadir entrada</a></li>
+                                       
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                
+                                    
+                                
+                                        <li><a href="{{path("blog_index_tag")}}">Etiquetas</a></li>
+                                        <li><a href="{{path("blog_index_category")}}">Categorías</a></li>
+                                        {% endif %}
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="{{path("logout")}}">Salir</a></li>
+                                    {% endif%}
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+        <section id="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-1">
+                    </div>
+                    <div class="col-sm-10">    
+                        {% block content %} Content default {% endblock %}
+                    </div>
+                    <div class="col-sm-1">    
+            
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <hr>
+            Página symfony - Hafid &copy;
+        </footer>
+    </body>
+</html>
