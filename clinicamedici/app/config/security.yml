@@ -1,11 +1,17 @@
 # To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
+# http://symfony.com/doc/current/book/security.html
 security:
-
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    encoders:
+        clinicaBundle\Entity\Paciente:
+            algorithm: bcrypt
+            cost: 4
+    
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+            entity:
+                class: clinicaBundle:paciente
+                property: email
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -15,10 +21,16 @@ security:
 
         main:
             anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+            provider: our_db_provider
+            form_login:
+                login_path: /login
+                check_path: /login_check
+            logout:
+                path: /logout
+                target: /login
+                
+    access_control:
+#        - { path: ^/, roles: ROLE_USER}
+        - { path: ^/clinica, roles: ROLE_USER}
+        #- { path: ^/clinica, roles: ROLE_ADMIN}
+        #- { path: ^/clinica, roles: [ROLE_ADMIN, ROLE_USER]}

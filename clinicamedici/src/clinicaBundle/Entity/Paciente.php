@@ -1,11 +1,11 @@
 <?php
 
 namespace clinicaBundle\Entity;
-
+# use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Paciente
  */
-class Paciente
+class Paciente # implements UserInterface
 {
     /**
      * @var string
@@ -87,6 +87,59 @@ class Paciente
      */
     private $medico;
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+     // esto se ha añadido
+    
+   // AUTH
+	
+	public function getUsername() {
+		return $this->email;
+	}
+	
+	public function getSalt() {
+		return null;
+	}
+	
+	public function getRoles() {
+		return array($this->getRole());
+	}
+
+	public function eraseCredentials() {
+		
+	}
+
+	// END AUTH
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /**
      * Set nombre
@@ -457,5 +510,23 @@ class Paciente
     {
         return $this->medico;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 

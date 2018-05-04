@@ -1,3 +1,26 @@
+clinica_clinica:
+    resource: "@clinicaBundle/Resources/config/routing/clinica.yml"
+    prefix:   /clinica
+
+
 clinica_homepage:
     path:     /
-    defaults: { _controller: clinicaBundle:Default:index }
+    defaults: { _controller: clinicaBundle:clinica:index }
+
+
+clinica_clinica:
+    path:     /clinica
+    defaults: { _controller: clinicaBundle:clinica:index }
+
+
+
+
+login:
+    path: /login
+    defaults: { _controller: clinicaBundle:Paciente:login } 
+    
+login_check:
+    path: /login_check
+    
+logout:
+    path: /logout

@@ -1,0 +1,4 @@
+clinica_index:
+    path:     /
+    defaults: { _controller: "clinicaBundle:clinica:index" }
+    methods:  GET

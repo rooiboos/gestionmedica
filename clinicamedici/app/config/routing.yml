@@ -5,3 +5,4 @@ clinica:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
