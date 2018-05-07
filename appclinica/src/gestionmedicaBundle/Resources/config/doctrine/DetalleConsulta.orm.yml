@@ -1,0 +1,47 @@
+gestionmedicaBundle\Entity\DetalleConsulta:
+    type: entity
+    table: detalle_consulta
+    indexes:
+        fk_detalle_consulta_consulta:
+            columns:
+                - consultaid
+        fk_detalle_consulta_tratamiento:
+            columns:
+                - tratamientoid
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        cantidad:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        consultaid:
+            targetEntity: Consulta
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                consultaid:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tratamientoid:
+            targetEntity: Tratamiento
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tratamientoid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

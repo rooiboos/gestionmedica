@@ -1,0 +1,75 @@
+gestionmedicaBundle\Entity\Empleado:
+    type: entity
+    table: empleado
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        role:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        nombre:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        apellido:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dni:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        direccion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        telefono:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        fechacontrato:
+            type: date
+            nullable: true
+        salariomes:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        imagen:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

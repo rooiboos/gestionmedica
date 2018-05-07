@@ -1,0 +1,104 @@
+gestionmedicaBundle\Entity\Paciente:
+    type: entity
+    table: paciente
+    indexes:
+        fk_paciente_empleado:
+            columns:
+                - medicoid
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        apellido:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        dni:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        direccion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        telefono:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        fechanacimiento:
+            type: date
+            nullable: true
+        fechaalta:
+            type: date
+            nullable: true
+        imagen:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        gsangui:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        pesokg:
+            type: float
+            nullable: true
+            precision: 6
+            scale: 3
+        tallam:
+            type: float
+            nullable: true
+            precision: 3
+            scale: 2
+        informemed:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        medicoid:
+            targetEntity: Empleado
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                medicoid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

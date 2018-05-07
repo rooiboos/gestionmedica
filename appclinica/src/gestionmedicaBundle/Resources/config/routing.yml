@@ -1,0 +1,3 @@
+gestionmedica_homepage:
+    path:     /
+    defaults: { _controller: gestionmedicaBundle:Default:index }

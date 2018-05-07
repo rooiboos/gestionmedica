@@ -1,0 +1,58 @@
+gestionmedicaBundle\Entity\Parteincidencia:
+    type: entity
+    table: parteincidencia
+    indexes:
+        fk_parteincidencia_empleado:
+            columns:
+                - empleadoid
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fechaincidencia:
+            type: date
+            nullable: true
+        fechasolucion:
+            type: date
+            nullable: true
+        estado:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        incidencia:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        solucion:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        coste:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        empleadoid:
+            targetEntity: Empleado
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                empleadoid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

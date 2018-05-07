@@ -1,0 +1,47 @@
+gestionmedicaBundle\Entity\Consulta:
+    type: entity
+    table: consulta
+    indexes:
+        fk_consulta_paciente:
+            columns:
+                - pacienteid
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        estado:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        fechasolicitud:
+            type: date
+            nullable: true
+        fechaconsulta:
+            type: date
+            nullable: true
+        comentmedico:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        pacienteid:
+            targetEntity: Paciente
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                pacienteid:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
