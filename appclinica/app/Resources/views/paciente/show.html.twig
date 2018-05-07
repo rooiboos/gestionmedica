@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Paciente</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ paciente.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ paciente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellidos</th>
+                <td>{{ paciente.apellido }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ paciente.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ paciente.password }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ paciente.dni }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ paciente.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ paciente.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Fecha de nacimiento</th>
+                <td>{% if paciente.fechanacimiento %}{{ paciente.fechanacimiento|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fecha de alta</th>
+                <td>{% if paciente.fechaalta %}{{ paciente.fechaalta|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td>{{ paciente.imagen }}</td>
+            </tr>
+            <tr>
+                <th>Grupo sanguíneo</th>
+                <td>{{ paciente.gsangui }}</td>
+            </tr>
+            <tr>
+                <th>Peso (kg)</th>
+                <td>{{ paciente.pesokg }}</td>
+            </tr>
+            <tr>
+                <th>Talla (m)</th>
+                <td>{{ paciente.tallam }}</td>
+            </tr>
+            <tr>
+                <th>Informe médico</th>
+                <td>{{ paciente.informemed }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('paciente_index') }}">Volver al listado</a>
+        </li>
+        <li>
+            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

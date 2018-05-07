@@ -1,3 +1,7 @@
+gestionmedica_paciente:
+    resource: "@gestionmedicaBundle/Resources/config/routing/paciente.yml"
+    prefix:   /paciente
+
 gestionmedica_homepage:
     path:     /
     defaults: { _controller: gestionmedicaBundle:Default:index }

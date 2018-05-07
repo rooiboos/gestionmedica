@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pacientes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Dni</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Fechanacimiento</th>
+                <th>Fechaalta</th>
+                <th>Imagen</th>
+                <th>Gsangui</th>
+                <th>Pesokg</th>
+                <th>Tallam</th>
+                <th>Informemed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for paciente in pacientes %}
+            <tr>
+                <td><a href="{{ path('paciente_show', { 'id': paciente.id }) }}">{{ paciente.id }}</a></td>
+                <td>{{ paciente.nombre }}</td>
+                <td>{{ paciente.apellido }}</td>
+                <td>{{ paciente.email }}</td>
+                <td>{{ paciente.password }}</td>
+                <td>{{ paciente.dni }}</td>
+                <td>{{ paciente.direccion }}</td>
+                <td>{{ paciente.telefono }}</td>
+                <td>{% if paciente.fechanacimiento %}{{ paciente.fechanacimiento|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if paciente.fechaalta %}{{ paciente.fechaalta|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ paciente.imagen }}</td>
+                <td>{{ paciente.gsangui }}</td>
+                <td>{{ paciente.pesokg }}</td>
+                <td>{{ paciente.tallam }}</td>
+                <td>{{ paciente.informemed }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('paciente_show', { 'id': paciente.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('paciente_edit', { 'id': paciente.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('paciente_new') }}">Create a new paciente</a>
+        </li>
+    </ul>
+{% endblock %}

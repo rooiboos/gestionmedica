@@ -1,6 +1,7 @@
 <?php
 
 namespace gestionmedicaBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Empleado
@@ -9,6 +10,21 @@ class Empleado
 {
     /**
      * @var integer
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * @ORM\ManyToOne(targetEntity="Empleado", inversedBy="paciente")
+     * @ORM\JoinColumn(name="medicoid", referencedColumnName="id", nullable=false)
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
      */
     private $id;
 
@@ -68,6 +84,19 @@ class Empleado
     private $imagen;
 
 
+    
+    
+    
+ 
+    #para recuperar 
+    
+        public function __toString()
+{
+    return $this->nombre;
+}
+    
+    
+    
     /**
      * Get id
      *

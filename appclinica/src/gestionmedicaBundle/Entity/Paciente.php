@@ -1,6 +1,7 @@
 <?php
 
 namespace gestionmedicaBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Paciente
@@ -84,6 +85,12 @@ class Paciente
 
     /**
      * @var \gestionmedicaBundle\Entity\Empleado
+     * 
+     * 
+     * 
+     * 
+     * @ORM\OneToMany(targetEntity="Paciente", mappedBy="empleado")
+     * 
      */
     private $medicoid;
 
@@ -441,6 +448,10 @@ class Paciente
      *
      * @return Paciente
      */
+    
+    
+
+    
     public function setMedicoid(\gestionmedicaBundle\Entity\Empleado $medicoid = null)
     {
         $this->medicoid = $medicoid;
@@ -457,5 +468,15 @@ class Paciente
     {
         return $this->medicoid;
     }
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
 }
 
